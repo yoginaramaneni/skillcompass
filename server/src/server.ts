@@ -7,12 +7,14 @@ if (!config.databaseUrl) {
   logger.warn('DATABASE_URL is not configured. Set the Supabase PostgreSQL connection string before starting database-backed features.');
 }
 
-const server = app.listen(config.port, () => {
+const PORT = parseInt(String(process.env.PORT || config.port || 5000), 10);
+
+const server = app.listen(PORT, '0.0.0.0', () => {
   logger.info(`==================================================`);
   logger.info(`  SkillCompass Backend API Server Running`);
   logger.info(`  Environment: ${config.nodeEnv}`);
-  logger.info(`  URL: http://localhost:${config.port}`);
-  logger.info(`  Health Check: http://localhost:${config.port}/api/health`);
+  logger.info(`  Server running on port ${PORT}`);
+  logger.info(`  Health Check: http://localhost:${PORT}/api/health`);
   logger.info(`==================================================`);
 });
 
