@@ -5,6 +5,8 @@ import apiRoutes from './routes/index';
 import { errorHandler } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/notFound.middleware';
 
+import { getHealth } from './controllers/health.controller';
+
 const app = express();
 
 // Middlewares
@@ -19,6 +21,10 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// Root & Health Check Endpoints
+app.get('/', getHealth);
+app.get('/health', getHealth);
 
 // API Routes
 app.use('/api', apiRoutes);
