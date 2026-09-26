@@ -13,6 +13,7 @@ export const errorHandler = (
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json({
       success: false,
+      message: err.message,
       error: {
         code: err.code || 'API_ERROR',
         message: err.message,
@@ -24,6 +25,7 @@ export const errorHandler = (
   // Handle generic / unexpected errors safely without leaking internal stack traces in production
   return res.status(500).json({
     success: false,
+    message: 'An unexpected error occurred. Please try again.',
     error: {
       code: 'INTERNAL_SERVER_ERROR',
       message: 'Internal Server Error',
