@@ -35,7 +35,7 @@ export const RegisterPage: React.FC = () => {
       await register(email, password, firstName, lastName);
       navigate('/onboarding');
     } catch (err: any) {
-      setError(err.response?.data?.message || err.message || 'Registration failed');
+      setError(err.response?.data?.message || err.response?.data?.error?.message || 'Registration failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

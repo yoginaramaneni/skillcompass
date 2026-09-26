@@ -22,7 +22,7 @@ export const LoginPage: React.FC = () => {
       await login(email, password);
       navigate('/dashboard');
     } catch (err: any) {
-      setError(err.response?.data?.message || err.message || 'Invalid email or password');
+      setError(err.response?.data?.message || err.response?.data?.error?.message || 'Invalid email or password. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
