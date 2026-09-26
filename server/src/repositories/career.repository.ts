@@ -3,6 +3,15 @@ import { DbCareerRole } from '../types/db.types';
 import { levelToNumber } from '../utils/skillLevel';
 import { logger } from '../utils/logger';
 
+export interface DbCareerRoleSkillRow {
+  skillId: string;
+  skillName: string;
+  slug: string;
+  category: string | null;
+  importance: 'low' | 'medium' | 'high' | 'critical';
+  minimumLevel: string;
+}
+
 export interface CareerRoleSkillDetail {
   skillId: string;
   skillName: string;
@@ -99,7 +108,7 @@ export class CareersRepository {
         [careerRoleId]
       );
 
-      return result.rows.map(row => ({
+      return result.rows.map((row: DbCareerRoleSkillRow) => ({
         ...row,
         minimumLevelNumber: levelToNumber(row.minimumLevel),
       }));

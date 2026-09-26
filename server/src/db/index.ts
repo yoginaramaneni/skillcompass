@@ -34,7 +34,7 @@ const poolConfig = hasDatabaseConfig && sanitizedUrl
 export const dbPool = poolConfig ? new Pool(poolConfig) : null;
 
 if (dbPool) {
-  dbPool.on('error', (err) => {
+  dbPool.on('error', (err: Error) => {
     logger.error('Unexpected Supabase PostgreSQL client pool error:', err.message);
   });
 }
