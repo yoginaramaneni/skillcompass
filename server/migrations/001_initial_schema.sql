@@ -1,0 +1,23 @@
+-- SkillCompass Initial Database Schema Structure Foundation
+-- Note: DDL statement definitions will be applied in Step 2.
+
+-- Planned Entity Tables:
+-- 1. users
+-- 2. profiles
+-- 3. education
+-- 4. skills
+-- 5. user_skills
+-- 6. projects
+-- 7. certifications
+-- 8. experience
+-- 9. career_roles
+-- 10. career_role_skills
+-- 11. assessments
+-- 12. assessment_questions
+-- 13. assessment_attempts
+-- 14. skill_gaps
+-- 15. learning_roadmaps
+-- 16. learning_plan_tasks
+-- 17. market_skills
+-- 18. market_skill_trends
+-- 19. ai_generations
